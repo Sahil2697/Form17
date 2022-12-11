@@ -1,0 +1,71 @@
+<html>
+<style>
+    body, html {
+  height: 100%;
+}
+    /* Position text in the middle of the page/image */
+.bg-text {
+  background-color: rgb(30,63,102); /* Fallback color */
+  background-color: rgba(30,63,102); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+
+</style>
+<body bgcolor="#ffd454">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="bg-text">
+    <script>
+        function getAge() {
+        var dateString = document.getElementById("date").value;
+        if(dateString !="")
+        {
+            var today = new Date();
+            var birthDate = new Date(dateString);
+            var age = today.getFullYear() - birthDate.getFullYear();
+            var m = today.getMonth() - birthDate.getMonth();
+            var da = today.getDate() - birthDate.getDate();
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            if(m<0){
+                m +=12;
+            }
+            if(da<0){
+                da +=30;
+            }
+        
+          if(age < 14)
+        {
+        alert("Candidate is Not Eligible for Form 17 He/She is "+age+" Years Old");
+        
+        } else {
+        
+        window.location.href = "form17.html";
+        }
+        } else {
+        alert("Please enter Candidate Date of Birth");
+        }
+        }
+        </script>
+    
+        <center>
+        <h1># Form 17 Application #</h1></n>
+        <h2>Eligibility Tracker</h2></n>
+        <h3>Enter the Candidate D.O.B</h3>
+        <input type="date" id="date" value="1987/08/31" onblur="getAge()" style="font-size: 1.5rem" >
+        </center>
+    </div>
+</body>
+</html>
+
+ 
